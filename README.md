@@ -2,7 +2,7 @@
 
 ### Introduction
 
-TopCoder, Sphere Online Judge, Google Code Jam, Project Euler, Sedgewick's Algorithms, …
+Solutions and assorted through whilst working through textbooks, online problems, and random ideas.
 
 ### Contents
 
