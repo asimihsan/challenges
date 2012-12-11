@@ -1,0 +1,23 @@
+Searching Through the Haystackclick to collapse
+
+In “Finding a Motif in DNA”, we searched a given genetic string for a motif; however, this problem assumed that we know the motif in advance. In practice, biologists often do not know exactly what they are looking for. Rather, they must hunt through several different genomes at the same time to identify regions of similarity that may indicate genes shared by different organisms or species.
+
+The simplest such region of similarity is a motif occurring without mutation in every one of a collection of genetic strings taken from a database; such a motif corresponds to a substring shared by all the strings. We want to search for long shared substrings, as a longer motif will likely indicate a greater shared function.
+
+Problem
+
+A common substring of a collection of strings is a substring of every member of the collection. We say that a common substring is a longest common substring if a longer common substring of the collection does not exist. For example, CG is a common substring of ACGTACGT and AACCGGTATA, whereas GTA is a longest common substring. Note that multiple longest common substrings may exist.
+
+Given: A collection of k DNA strings (of length at most 1 kbp each; k≤100).
+
+Return: A longest common substring of the collection. (If multiple solutions exist, you may return any single solution.)
+
+Sample Dataset
+
+GATTACA
+TAGACCA
+ATACA
+Sample Output
+
+AC
+
