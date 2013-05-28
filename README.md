@@ -14,4 +14,4 @@ Solutions and assorted through whilst working through textbooks, online problems
 -	`projecteuler`: Test-driven solutions to Project Euler in **Scala**.
 -	`sedgwick`: Work and toys derived from _Algorithms_ by Sedgwick in **Java**.
 -	`spoj`:	Sphere Online Judge problems in **Python** and **Scala**.
--	`topcoder`: Solutions to TopCoder problems in **Java**.
+-	`topcoder`: Solutions to TopCoder problems in **Java** and **Python**.
