@@ -32,6 +32,8 @@ subgraph.
 
 Hence after drawing edges between all nodes separated by less than dist
 return 2^k-1, where k is the number of connected components.
+
+To execute tests please use PyTopCoder
 """
 
 # For a fully connected graph, i.e. all nodes are possible and every
