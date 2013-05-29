@@ -1,0 +1,14 @@
+<html><head><title>12578. ShoutterDiv2</title></head><body><h1>12578. ShoutterDiv2</h1><h2>Problem</h2><p><td class="statText"><p>A group of freshman rabbits has recently joined the Eel club.
+No two of the rabbits knew each other.
+Today, each of the rabbits went to the club for the first time.
+You are given int[]s <b>s</b> and <b>t</b> with the following meaning:
+For each i, rabbit number i entered the club at the time <b>s</b>[i] and left the club at the time <b>t</b>[i].</p>
+<p>Each pair of rabbits that was in the club at the same time got to know each other, and they became friends on the social network service Shoutter.
+This is also the case for rabbits who just met for a single moment (i.e., one of them entered the club exactly at the time when the other one was leaving).</p>
+<p>Compute and return the number of pairs of rabbits that became friends today.</p></td></p><h2>Definition</h2><h3>Filename</h3><p>ShoutterDiv2.py</p><h3>Signature</h3><p>int count(int[] s, int[] t)</p><h2>Constraints</h2><ul><li><td class="statText"><b>s</b> and <b>t</b> will contain between 1 and 50 integers, inclusive.</td></li><li><td class="statText"><b>s</b> and <b>t</b> will contain the same number of elements.</td></li><li><td class="statText">Each integer in <b>s</b> and <b>t</b> will be between 0 and 100, inclusive.</td></li><li><td class="statText">For each i, <b>t</b>[i] will be greater than or equal to <b>s</b>[i].</td></li></ul><h2>Examples</h2><ul><li>count([1, 2, 4], [3, 4, 6]) = 2<td class="statText"><table><tr><td colspan="2" class="statText">Rabbit 0 and Rabbit 1 will be friends because both of them are in the club between time 2 and 3.
+<br />
+Rabbit 0 and Rabbit 2 won't be friends because Rabbit 0 will leave the club before Rabbit 2 enters the club.
+<br />
+Rabbit 1 and Rabbit 2 will be friends because both of them are in the club at time 4.
+<br />
+</td></tr></table></td></li><li>count([0], [100]) = 0</li><li>count([0, 0, 0], [1, 1, 1]) = 3</li><li>count([9, 26, 8, 35, 3, 58, 91, 24, 10, 26, 22, 18, 15, 12, 15, 27, 15, 60, 76, 19, 12, 16, 37, 35, 25, 4, 22, 47, 65, 3, 2, 23, 26, 33, 7, 11, 34, 74, 67, 32, 15, 45, 20, 53, 60, 25, 74, 13, 44, 51], [26, 62, 80, 80, 52, 83, 100, 71, 20, 73, 23, 32, 80, 37, 34, 55, 51, 86, 97, 89, 17, 81, 74, 94, 79, 85, 77, 97, 87, 8, 70, 46, 58, 70, 97, 35, 80, 76, 82, 80, 19, 56, 65, 62, 80, 49, 79, 28, 75, 78]) = 830</li></ul>
