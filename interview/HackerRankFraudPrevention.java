@@ -69,9 +69,9 @@ class Rule {
         try {
             for (String name : same) {
                 Field field = Record.class.getField(name);
-                returnValue = 31 * returnValue + field.hashCode();
+                returnValue = 31 * returnValue + field.get(r).hashCode();
             }
-        } catch (NoSuchFieldException e) {
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException("Rule couldn't find fields!", e);
         }
         return returnValue;
@@ -166,8 +166,9 @@ class HackerRankFraudPrevention {
             Set<Record> frauds = new HashSet<Record>();
             for (FraudDetector f : fs)
                 frauds.addAll(f.getFraudulentRecords());
-            List<Record> result = new ArrayList<>(frauds.size());
-            result.addAll(frauds);
+            List<Integer> result = new ArrayList<>(frauds.size());
+            for (Record r : frauds)
+                result.add(new Integer(r.orderId));
             Collections.sort(result);
             for (int i = 0; i < result.size() - 1; i++)
                 System.out.print(String.format("%s,", result.get(i)));
