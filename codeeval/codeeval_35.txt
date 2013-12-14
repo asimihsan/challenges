@@ -1,0 +1,10 @@
+foo@bar.com
+this is not an email id
+admin#codeeval.com
+good123@bad.com
+foo.@bar.com
+foo.bar@bar.com
+foo.bar.@bar.com
+foo.bar@bar.com.
+foo..bar@bar.com.
+foo..bar@@bar.com.
