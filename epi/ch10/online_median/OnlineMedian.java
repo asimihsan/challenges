@@ -95,6 +95,10 @@ class OnlineMedian {
         n--;
         if (n == 1)
             medianNode = root.next;
+        else if (n % 2 == 0 && node == medianNode)
+            medianNode = medianNode.prev;
+        else if (n % 2 == 1 && node == medianNode)
+            medianNode = medianNode.next;
         else if (n % 2 == 0  && number.compareTo(medianNode.value) >= 0)
             medianNode = medianNode.prev;
         else if (n % 2 == 1 && number.compareTo(medianNode.value) < 0)
