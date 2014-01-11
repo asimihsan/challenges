@@ -1,15 +1,45 @@
+/**
+ * References:
+ *
+ * -    A good start is the Wikipedia article [1]. But you still need to
+ *      read the RFCs.
+ * 
+ * -    Best general reference is RFC 822 [2].
+ * 
+ * -    Comments in the local part (e.g. "(comment)user@host.com" are
+ *      best explained by RFC 822 sections 3.1.4 and 3.2. In particular
+ *      note "comment" is a lexical token, it may contain any character
+ *      except ["(", ")", "\", "\n"], and it is ignored when comparing
+ *      two email addresses. This is not clear in the Wikipedia article,
+ *      but RFC 822's ABNF is very clear.
+ * 
+ * -    For the local part also see RFC 5322 section 3.4.1 [3]
+ *
+ * [1] http://en.wikipedia.org/wiki/Email_address
+ * 
+ * [2] http://tools.ietf.org/html/rfc822
+ *
+ * [3] http://tools.ietf.org/html/rfc5322#section-3.4.1
+ */
+
 emailAddress = (function() {
     'use strict';
-    var RE_PATTERN = /^(.+)@(.+)$/;
-    var RE_IN_DQUOTE_CHAR = /^(?:[A-Za-z0-9!#$%&\'*+\-\/=?_`{|}~^(),:;<>@\[\] \.]|\\["\\])$/;
-    var RE_OUT_DQUOTE_CHAR = /^(?:[A-Za-z0-9!#$%&\'*+\-\/=?_`{|}~^])$/;
-    var RE_DQUOTE = /"/;
-    var RE_DOT = /\./;
-    var STATE_START = 0,
+    var RE_PATTERN = /^(.+)@(.+)$/,
+        RE_IN_DQUOTE_CHAR = /^(?:[A-Za-z0-9!#$%&\'*+\-\/=?_`{|}~^(),:;<>@\[\] \.]|\\["\\])$/,
+        RE_OUT_DQUOTE_CHAR = /^(?:[A-Za-z0-9!#$%&\'*+\-\/=?_`{|}~^])$/,
+        RE_COMMENT_CHAR = /[^()\\\n]/,
+        RE_DQUOTE = /"/,
+        RE_DOT = /\./,
+        RE_LBRACKET = /\(/,
+        RE_RBRACKET = /\)/,
+        STATE_START = 0,
         STATE_IN_DQUOTE = 1,
         STATE_OUT_DQUOTE = 2,
-        STATE_END_DQUOTE = 3;
-    var RE_DOMAIN = /^(?:[a-z0-9\-]+)(?:\.[a-z0-9\-]+)*$/;
+        STATE_END_DQUOTE = 3,
+        STATE_IN_COMMENT_AT_START = 4,
+        STATE_IN_COMMENT_AT_END = 5,
+        STATE_END_COMMENT_AT_END = 6,
+        RE_DOMAIN = /^(?:[a-z0-9\-]+)(?:\.[a-z0-9\-]+)*$/;
 
     var isValidLocalPart = function(string) {
         var state = STATE_START;
@@ -29,6 +59,8 @@ emailAddress = (function() {
                     state = STATE_IN_DQUOTE;
                 } else if (RE_OUT_DQUOTE_CHAR.test(c)) {
                     state = STATE_OUT_DQUOTE;
+                } else if (RE_LBRACKET.test(c)) {
+                    state = STATE_IN_COMMENT_AT_START;
                 } else {
                     return false;
                 }
@@ -58,6 +90,8 @@ emailAddress = (function() {
             case STATE_END_DQUOTE:
                 if (RE_DOT.test(c)) {
                     state = STATE_START;
+                } else if (RE_LBRACKET.test(c)) {
+                    state = STATE_IN_COMMENT_AT_END;
                 } else if (c === null) {
                     return true;
                 } else {
@@ -70,6 +104,38 @@ emailAddress = (function() {
                     state = STATE_OUT_DQUOTE;
                 } else if (RE_DOT.test(c)) {
                     state = STATE_START;
+                } else if (RE_LBRACKET.test(c)) {
+                    state = STATE_IN_COMMENT_AT_END;
+                } else if (c === null) {
+                    return true;
+                } else {
+                    return false;
+                }
+                break;
+
+            case STATE_IN_COMMENT_AT_START:
+                if (RE_RBRACKET.test(c)) {
+                    state = STATE_START;
+                } else if (RE_COMMENT_CHAR.test(c)) {
+                    state = STATE_IN_COMMENT_AT_START;
+                } else {
+                    return false;
+                }
+                break;
+
+            case STATE_IN_COMMENT_AT_END:
+                if (RE_RBRACKET.test(c)) {
+                    state = STATE_END_COMMENT_AT_END;
+                } else if (RE_COMMENT_CHAR.test(c)) {
+                    state = STATE_IN_COMMENT_AT_END;
+                } else {
+                    return false;
+                }
+                break;
+
+            case STATE_END_COMMENT_AT_END:
+                if (RE_LBRACKET.test(c)) {
+                    state = STATE_IN_COMMENT_AT_END;
                 } else if (c === null) {
                     return true;
                 } else {
