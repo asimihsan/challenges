@@ -39,3 +39,7 @@ test('invalid test 3', function() {
 test('invalid test 4', function() {
     ok(!emailAddress.isValid('user@host.com.'));
 });
+
+test('invalid test 5', function() {
+    ok(!emailAddress.isValid('john..doe@host.com'));
+});
