@@ -52,6 +52,22 @@ test('valid test 13', function() {
     ok(emailAddress.isValid('"john\\".\\"adams\\".\\"doe"@example.com'));
 });
 
+test('valid test 14', function() {
+    ok(emailAddress.isValid('(comment)john.smith@example.com'));
+});
+
+test('valid test 15', function() {
+    ok(emailAddress.isValid('john.smith(comment)@example.com'));
+});
+
+test('valid test 16', function() {
+    ok(emailAddress.isValid('(comment)(comment)john.smith@example.com'));
+});
+
+test('valid test 17', function() {
+    ok(emailAddress.isValid('john.smith(comment)(comment)@example.com'));
+});
+
 test('invalid test 1', function() {
     ok(!emailAddress.isValid('Abc.example.com'));
 });
@@ -106,4 +122,8 @@ test('invalid test 13', function() {
 
 test('invalid test 14', function() {
     ok(!emailAddress.isValid('"john.adams."doe@example.com'));
+});
+
+test('invalid test 15', function() {
+    ok(!emailAddress.isValid('(comment)@example.com'));
 });
