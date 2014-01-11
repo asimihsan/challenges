@@ -11,17 +11,17 @@ Verify email addresses in JavaScript.
         run `npm config set prefix ~/npm`.
 -   Make sure bower is installed.
 
-    npm install -g bower
+        npm install -g bower
 
 -   Make sure grunt-cli is installed.
 
-    npm install -g grunt-cli
+        npm install -g grunt-cli
 
 -   Install dependencies:
 
-    npm install
-    bower install
+        npm install
+        bower install
 
 -   Run tests
 
-    grunt
+        grunt
