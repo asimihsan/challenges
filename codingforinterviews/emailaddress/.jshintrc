@@ -1,0 +1,33 @@
+{
+    // Enforcing
+    "bitwise": true,
+    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": true,
+    "strict": true,
+    "trailing": true,
+    "undef": true,
+    "unused": true,
+
+    // Relaxing
+    "esnext": true,
+    "smarttabs": true,
+
+    // Environments
+    "browser": true,
+    "jquery": true,
+    "node": true,
+
+    // Custom globals
+    "globals": {
+        "emailAddress": true,
+        "ok": false,
+        "test": false
+    }
+}
