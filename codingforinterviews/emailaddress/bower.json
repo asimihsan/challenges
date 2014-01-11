@@ -5,7 +5,7 @@
   "authors": [
     "Asim Ihsan <angry.blade5619@ihsan.io>"
   ],
-  "license": "MIT",
+  "license": "Apache",
   "private": true,
   "ignore": [
     "**/.*",
