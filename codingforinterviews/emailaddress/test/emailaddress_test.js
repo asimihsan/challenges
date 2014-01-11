@@ -72,6 +72,18 @@ test('valid test 17', function() {
     ok(emailAddress.isValid('"very.(),:;<>[]\\".VERY.\\"very@\\\\ \\"very\\".unusual"@strange.example.com'));
 });
 
+test('valid test 18', function() {
+    ok(emailAddress.isValid('admin@mailserver1'));
+});
+
+test('valid test 19', function() {
+    ok(emailAddress.isValid('postbox@com'));
+});
+
+test('valid test 20', function() {
+    ok(emailAddress.isValid('" "@example.com'));
+});
+
 test('invalid test 1', function() {
     ok(!emailAddress.isValid('Abc.example.com'));
 });
