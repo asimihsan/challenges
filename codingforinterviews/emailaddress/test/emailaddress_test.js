@@ -68,6 +68,10 @@ test('valid test 17', function() {
     ok(emailAddress.isValid('john.smith(comment)(comment)@example.com'));
 });
 
+test('valid test 17', function() {
+    ok(emailAddress.isValid('"very.(),:;<>[]\\".VERY.\\"very@\\\\ \\"very\\".unusual"@strange.example.com'));
+});
+
 test('invalid test 1', function() {
     ok(!emailAddress.isValid('Abc.example.com'));
 });
