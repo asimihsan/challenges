@@ -2,6 +2,13 @@
 
 Verify email addresses in JavaScript.
 
+## TODO
+
+-  IPv4/IPv6 IP address validation in the domain-part.
+-  Limit of 64 chars for the local-part.
+-  Limit of 255 chars for the domain-part.
+-  Limit of 254 chars for entire email address.
+
 ## How to run tests
 
 -   Clone the repo.
