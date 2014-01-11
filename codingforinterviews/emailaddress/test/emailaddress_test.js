@@ -16,6 +16,14 @@ test('valid test 4', function() {
     ok(emailAddress.isValid('disposable.style.email.with+symbol@example.com'));
 });
 
+test('valid test 5', function() {
+    ok(emailAddress.isValid('!#$%&\'*+-/=?^_`{}|~@example.org'));
+});
+
+test('valid test 6', function() {
+    ok(emailAddress.isValid('other.email-with-dash@example.com'));
+});
+
 test('invalid test 1', function() {
     ok(!emailAddress.isValid('Abc.example.com'));
 });
