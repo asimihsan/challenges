@@ -31,3 +31,11 @@ test('invalid test 1', function() {
 test('invalid test 2', function() {
     ok(!emailAddress.isValid('A@b@c@example.com'));
 });
+
+test('invalid test 3', function() {
+    ok(!emailAddress.isValid('user.@host.com'));
+});
+
+test('invalid test 4', function() {
+    ok(!emailAddress.isValid('user@host.com.'));
+});
