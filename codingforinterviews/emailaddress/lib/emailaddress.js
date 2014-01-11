@@ -156,10 +156,10 @@ emailAddress = (function() {
             return false;
         }
         var domain = match[2];
-        if (RE_DOMAIN.test(domain)) {
-            return true;
+        if (!RE_DOMAIN.test(domain)) {
+            return false;
         }
-        return false;
+        return true;
     };
 
     return {
