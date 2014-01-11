@@ -1,0 +1,29 @@
+digraph local_part_fsm {
+    rankdir=LR;
+    size="16,5"
+    node [fontsize = 35];
+    edge [fontsize = 55];
+    node [shape = doublecircle]; ACCEPT;
+    node [shape = point]; qi;
+    node [shape = circle];
+    qi ->                  START;
+    END_COMMENT_AT_END ->  ACCEPT [ label = "$" ];
+    END_COMMENT_AT_END ->  IN_COMMENT_AT_END [ label = "(" ];
+    END_COMMENT_AT_END ->  START [ label = "." ];
+    END_DQUOTE ->          IN_COMMENT_AT_END [ label = "(" ];
+    END_DQUOTE ->          START [ label = "." ];
+    END_DQUOTE ->          ACCEPT [ label = "$" ];
+    IN_COMMENT_AT_END ->   END_COMMENT_AT_END [ label = ")" ];
+    IN_COMMENT_AT_END ->   IN_COMMENT_AT_END [ label = "COMMENT_CHAR" ];
+    IN_COMMENT_AT_START -> IN_COMMENT_AT_START [ label = "COMMENT_CHAR" ];
+    IN_COMMENT_AT_START -> START [ label = ")" ];
+    IN_DQUOTE ->           END_DQUOTE [ label = "\"" ];
+    IN_DQUOTE ->           IN_DQUOTE [ label = "IN_DQUOTE_CHAR" ];
+    OUT_DQUOTE ->          ACCEPT [ label = "$" ];
+    OUT_DQUOTE ->          IN_COMMENT_AT_END [ label = "(" ];
+    OUT_DQUOTE ->          OUT_DQUOTE [ label = "OUT_DQUOTE_CHAR" ];
+    OUT_DQUOTE ->          START [ label = "." ];
+    START ->               IN_COMMENT_AT_START [ label = "(" ];
+    START ->               IN_DQUOTE [ label = "\"" ];
+    START ->               OUT_DQUOTE [ label = "OUT_DQUOTE_CHAR" ];
+}
