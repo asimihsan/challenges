@@ -1,0 +1,20 @@
+{
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-nodeunit": "~0.2.2",
+    "nodeunit": "~0.8.2",
+    "watch": "~0.8.0",
+    "gaze": "~0.4.3",
+    "tiny-lr": "0.0.5",
+    "qunit": "~0.5.18",
+    "grunt-contrib-qunit": "~0.3.0"
+  },
+  "dependencies": {
+    "grunt": "~0.4.2"
+  }
+}
