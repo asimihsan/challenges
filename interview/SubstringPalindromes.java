@@ -1,6 +1,5 @@
-import java.util.HashSet;
 import java.util.Collection;
-import java.util.Set;
+import java.util.HashSet;
 
 class SubstringPalindromes {
     public static Collection<String> palindromes(String input) {
