@@ -22,6 +22,10 @@ class SubstringPalindromes {
 
     public static void main(String[] args) {
         System.out.println(palindromes("abba")); // [a, b, bb, abba]
-        System.out.println(palindromes("abccbd")); // 
+        System.out.println(palindromes("abccbd")); // [d, b, c, bccb, a, cc]
+        System.out.println(palindromes("aaabbb")); // [a, b, aa, bb, aaa, bbb]
+        System.out.println(palindromes("abcdefgh")); // [a, b, c, d, e, f, g, h]
+        System.out.println(palindromes("")); // []
+        System.out.println(palindromes("a")); // [a]
     }
 }
