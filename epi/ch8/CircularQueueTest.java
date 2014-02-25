@@ -1,3 +1,8 @@
+/**
+ * EPI - Q8.10 - Circular queue that dynamically resizes and supports
+ * O(1) enqueue and dequeue.
+ */
+
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
