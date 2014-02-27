@@ -1,0 +1,98 @@
+<style>
+    @font-face {
+      font-family: 'Noticia Text';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Noticia Text'), local('NoticiaText-Regular'), url(http://themes.googleusercontent.com/static/fonts/noticiatext/v4/wdyV6x3eKpdeUPQ7BJ5uUBa1RVmPjeKy21_GQJaLlJI.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Noticia Text';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Noticia Text Bold'), local('NoticiaText-Bold'), url(http://themes.googleusercontent.com/static/fonts/noticiatext/v4/pEko-RqEtp45bE2P80AAKRGYIVA-f1n-gQW6IKoy_-M.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Noticia Text';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Noticia Text Italic'), local('NoticiaText-Italic'), url(http://themes.googleusercontent.com/static/fonts/noticiatext/v4/dAuxVpkYE_Q_IwIm6elsKISNse2zJAGBOX1vGC0HDBk.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Noticia Text';
+      font-style: italic;
+      font-weight: 700;
+      src: local('Noticia Text Bold Italic'), local('NoticiaText-BoldItalic'), url(http://themes.googleusercontent.com/static/fonts/noticiatext/v4/-rQ7V8ARjf28_b7kRa0Jusr_TVbVq9Kr5jxArfkA4r0.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/ODelI1aHBYDBqgeIAH2zlBBHWFfxJXS04xYOz0jw624.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/toadOcfmlt9b38dHJxOBGAE-U1AYRUXXE0Dth8uKIE0.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Source Sans Pro Italic'), local('SourceSansPro-It'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/M2Jd71oPJhLKp0zdtTvoM1xDqsnd7zNt-b9r25av6rY.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: italic;
+      font-weight: 700;
+      src: local('Source Sans Pro Bold Italic'), local('SourceSansPro-BoldIt'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/fpTVHK8qsXbIeTHTrnQH6L7TcrrtjxQtUk4wnkGIFYE.woff) format('woff');
+    }
+
+    div.cell{
+        width: 80%;
+/*        margin-left:auto;*/
+/*        margin-right:auto;*/
+    }
+
+    .rendered_html p, .rendered_html li {
+        font-family: 'Noticia Text', Verdana, sans-serif;
+        line-height: 1.6em;
+        /*max-width: 840px;*/
+        text-align: left;
+    }
+
+    .rendered_html h1, .rendered_html h2, .rendered_html h3, .rendered_html h4, .rendered_html h5, .rendered_html h6 {
+        margin-bottom: 0.5em;
+    }
+
+    h1, h2, h3, h4, h5, h6  {
+        font-family: 'Source Sans Pro', Verdana, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        border-bottom: 1px dotted black;
+    }
+
+    div.prompt, pre {
+        font-family: 'Inconsolata', monospace;
+        padding: 0.4em;
+    }
+
+    .warning{
+        color: rgb( 240, 20, 20 )
+        }
+</style>
+<script>
+    MathJax.Hub.Config({
+                        TeX: {
+                           extensions: ["AMSmath.js"]
+                           },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                },
+                displayAlign: 'center', // Change this to 'center' to center equations.
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 4}}
+                }
+        });
+</script>
